@@ -1,12 +1,10 @@
 import React from 'react';
-import HookContext from './components/hook-context'
-import Test from './pages/test'
+import Home from './pages/home'
 
 function App() {
   return (
     <div className="App">
-      <HookContext />
-      <Test />
+      <Home />
     </div>
   );
 }

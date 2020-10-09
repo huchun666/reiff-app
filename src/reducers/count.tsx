@@ -2,15 +2,14 @@ export interface State {
   count: number;
 }
 
-type Action = { type: 'reset' } | { type: 'ADD_COUNT' } | { type: 'REDUCE_COUNT' };
+type Action = { type: 'reset', count: number } | { type: 'ADD_COUNT', count: number } | { type: 'REDUCE_COUNT', count: number };
 
 function count(state: State, action: Action): State {
-  console.log("functioncount -> state", state)
   switch (action.type) {
     case 'ADD_COUNT':
-      return { count: state.count };
+      return { count: action.count };
     case 'REDUCE_COUNT':
-      return { count: state.count};
+      return { count: action.count};
     case 'reset':
       return { count: 0 };
     default:

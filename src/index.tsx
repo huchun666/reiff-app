@@ -8,6 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from "redux-thunk";
 import logger from 'redux-logger';
 import { Provider } from "react-redux";
+// import './services/type'
 
 const store = createStore(
   rootReducers, 
