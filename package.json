@@ -21,7 +21,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.0.3",
+    "scss": "^0.2.4"
   },
   "scripts": {
     "dev": "react-scripts start",

@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import action from '../actions/index'
 import { State } from '../reducers/count'
+import MyTypes from 'MyTypes';
+import './test.scss'
 
 type IProps = {
-  count: State,
+  count: number,
   addCount: (count: number) => State
 }
-type IState = {
-  count: number
+type IState = MyTypes.testGolbalType & {
+  count: number,
 }
 
 const addCount = action.addCount
@@ -16,30 +18,35 @@ const addCount = action.addCount
 class Test extends Component<IProps, IState> {
   constructor(props: IProps) {
     super(props);
-    console.log("Test -> constructor -> props", props)
     this.state = {
-      count: 0
+      count: 0,
+      todo: 1
     }
+    console.log("Test -> constructor -> this.state", this.state)
+    
     this.handleAddCount = this.handleAddCount.bind(this);
   }
   handleAddCount () {
-    this.props.addCount(2)
+    let localCount = this.props.count;
+    this.props.addCount(localCount + 1);
   }
   render() {
     return (
       <div>
-        <div>{this.props.count.count}</div>
+        <div>{this.props.count}</div>
         <button onClick={this.handleAddCount}>添加count</button>
       </div>
     )
   }
 }
 
+type MState = {
+  count: State
+}
 
-const mapStateToProps = (state: State) => {
-  console.log(state)
+const mapStateToProps = (state: MState) => {
   return {
-    count: state.count
+    count: state.count.count
   }
 }
 
